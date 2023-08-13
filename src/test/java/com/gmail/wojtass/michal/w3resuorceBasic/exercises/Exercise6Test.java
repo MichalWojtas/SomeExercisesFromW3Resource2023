@@ -1,4 +1,4 @@
-package com.gmail.wojtass.michal.w3resuorceBasic.exercise6;
+package com.gmail.wojtass.michal.w3resuorceBasic.exercises;
 
 import com.gmail.wojtass.michal.w3resourceBasic.exercise6.Exercise6;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.InputMismatchException;
 import java.util.stream.Stream;
 
 public class Exercise6Test {
