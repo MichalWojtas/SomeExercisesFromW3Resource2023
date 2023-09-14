@@ -1,6 +1,7 @@
 package com.gmail.wojtass.michal.generalMethods;
 
 import java.util.InputMismatchException;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Methods {
@@ -56,6 +57,7 @@ public class Methods {
     /**
      * Method to check that String contains only number,
      * returns true if in String are only numbers and false if any character is different than digit.
+     * Made for Exercise51.
      * @param toCheck String
      * @return boolean
      */
@@ -64,15 +66,55 @@ public class Methods {
         if (toCheck.length() < 1){
             return false;
         }
-        for (int i = 0; i < toCheck.length(); i++) {
-            if (i == 0 && toCheck.charAt(0) == 45){
-                i++;
-            }
+        int i = 0;
+        if (toCheck.charAt(0) == 45){
+            i = 1;
+        }
+        for (;i < toCheck.length(); i++) {
             if (toCheck.charAt(i) < 48 || toCheck.charAt(i) > 57){
                 flag = false;
                 break;
             }
         }
         return flag;
+    }
+
+    /**
+     * Method to insert given number of elements to linked list which must be added in ascending order.
+     * Made for Exercise207.
+     * @param list LinkedList<Integer>
+     * @param numberOfElements int
+     * @return LinkedList<Integer>
+     */
+    public LinkedList<Integer> insertGivenNumberOfElementsToLinkedListInAscendingOrder(LinkedList<Integer> list, int numberOfElements ) {
+        System.out.println("Input numbers of 1st linked list in ascending order: ");
+        int number = writeInt();
+        list.add(number);
+        int numberTmp = number;
+        for (int i = 1; i < numberOfElements; i++) {
+            number = writeInt();
+            if (number >= numberTmp){
+                list.add(number);
+                numberTmp = number;
+            }else {
+                System.out.println("You must insert larger number than last number, try again.");
+                i--;
+            }
+        }
+        return list;
+    }
+
+    /**
+     * Method for merging two linked lists with Integers inside into new one.
+     * Made for Exercise207.
+     * @param list1 LinkedList<Integer>
+     * @param list2 LinkedList<Integer>
+     * @return LinkedList<Integer>
+     */
+    public LinkedList<Integer> mergeTwoLinkedLists(LinkedList<Integer> list1, LinkedList<Integer> list2){
+        LinkedList<Integer> mergedList = new LinkedList<>();
+        mergedList.addAll(list1);
+        mergedList.addAll(list2);
+        return mergedList;
     }
 }
