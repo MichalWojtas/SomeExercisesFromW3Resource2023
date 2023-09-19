@@ -1,5 +1,6 @@
 package com.gmail.wojtass.michal.generalMethods;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -116,5 +117,21 @@ public class Methods {
         mergedList.addAll(list1);
         mergedList.addAll(list2);
         return mergedList;
+    }
+
+    /**
+     * Methods check sides in Pythagorean theorem:   a2 + b2 = c2; a is sides[0], b is sides[1] and c is sides[2]
+     * Check that sides can form a right triangle and if any side is less than 1 then its false.
+     * @param sides int[]
+     * @return boolean
+     */
+    public boolean checkThatGivenSidesFormRightTriangle(int[] sides){
+        Arrays.sort(sides);
+        for (int x :sides) {
+            if (x < 1){
+                return false;
+            }
+        }
+        return (sides[2]*sides[2]) == (sides[0]*sides[0])+(sides[1]*sides[1]);
     }
 }

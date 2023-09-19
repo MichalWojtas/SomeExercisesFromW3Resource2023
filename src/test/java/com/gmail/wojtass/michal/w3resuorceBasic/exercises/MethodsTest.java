@@ -70,4 +70,55 @@ public class MethodsTest {
         boolean result = methods.checkInStringIsOnlyNumber(stringToCheck);
         Assertions.assertEquals(expectResult,result);
     }
+
+    /**
+     * Data for test with good results
+     * Int[] should contain 3 elements
+     * @return good results
+     */
+    private static Stream<Arguments> checkThatGivenSidesFormRightTriangleDataGoodResult(){
+        return Stream.of(
+                Arguments.of(new int[]{3,4,5},true),
+                Arguments.of(new int[]{13,12,5},true),
+                Arguments.of(new int[]{17,15,8},true)
+        );
+    }
+
+    /**
+     * Test for good data of checkThatGivenSidesFormRightTriangle method.
+     * @param sides int[]
+     * @param expectResult boolean
+     */
+    @ParameterizedTest
+    @MethodSource("checkThatGivenSidesFormRightTriangleDataGoodResult")
+    public void checkThatGivenSidesFormRightTriangle_parametersFromCheckThatGivenSidesFormRightTriangleDataGoodResult_resultsFromCheckThatGivenSidesFormRightTriangleDataGoodResult(int[] sides, boolean expectResult){
+        boolean result = methods.checkThatGivenSidesFormRightTriangle(sides);
+        Assertions.assertEquals(expectResult,result);
+    }
+
+    /**
+     * Data for test with bad results
+     * Int[] should contain 3 elements
+     * @return bad results
+     */
+    private static Stream<Arguments> checkThatGivenSidesFormRightTriangleDataBadResult(){
+        return Stream.of(
+                Arguments.of(new int[]{-3,4,5},false),
+                Arguments.of(new int[]{1,2,3},false),
+                Arguments.of(new int[]{18,15,8},false)
+        );
+    }
+
+    /**
+     * Test for bad data of checkThatGivenSidesFormRightTriangle method.
+     * @param sides int[]
+     * @param expectResult boolean
+     */
+    @ParameterizedTest
+    @MethodSource("checkThatGivenSidesFormRightTriangleDataBadResult")
+    public void checkThatGivenSidesFormRightTriangle_parametersFromCheckThatGivenSidesFormRightTriangleDataBadResult_resultsFromCheckThatGivenSidesFormRightTriangleDataBadResult(int[] sides, boolean expectResult){
+        boolean result = methods.checkThatGivenSidesFormRightTriangle(sides);
+        Assertions.assertEquals(expectResult,result);
+    }
+
 }
